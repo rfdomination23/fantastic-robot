@@ -42,7 +42,6 @@ var mainGameLoop = window.setInterval(function() {
 }, 1000)
 
 var saveGameLoop = window.setInterval(function() {
-    localStorage.removeItem("goldMinerSave")
     localStorage.setItem("goldMinerSave", JSON.stringify(gameData))
 }, 15000)
 
