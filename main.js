@@ -5,8 +5,8 @@ var gameData = {
 }
 
 function mineGold() {
-    gameData.gold_= gameData.goldPerClick
-    document.getElementById("goldMIned").innerHTML = gameData.gold + " Gold Mined"
+    gameData.gold += gameData.goldPerClick
+    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
 }
 
 function buyGoldPerClick() {
