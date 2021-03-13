@@ -1,11 +1,18 @@
 var gameData = {
-    gold : 0,
+    gold : 1,
     goldPerClick: 1,
-    goldPerClickCost: 10
+    goldPerClickCost: 10,
+    dwarfMiner : 1,
+    dwarfMinerCost: 20
 }
 
 function mineGold() {
     gameData.gold += gameData.goldPerClick
+    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
+}
+
+function dwarfMine() {
+    gameData.gold += (gameData.dwarfMiner * gameData.goldPerClick)
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
 }
 
@@ -19,8 +26,18 @@ function buyGoldPerClick() {
     }
 }
 
+function buyDwarfMiner() {
+    if (gameData.gold >= gameData.dwarfMinerCost) {
+        gameData.gold -= gameData.dwarfMinerCost
+        gameData.dwarfMiner += 1
+        gameData.dwarfMinerCost *=2
+        document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
+        document.getElementById("perClickBuyMiner").innerHTML = "Buy Dwarf Miner (Currently " + gameData.dwarfMiner + ") Cost: " + gameData.dwarfMinerCost + " Gold"
+    }
+}
+
 var mainGameLoop = window.setInterval(function() {
-    mineGold()
+    dwarfMine()
 }, 1000)
 
 var saveGameLoop = window.setInterval(function() {
