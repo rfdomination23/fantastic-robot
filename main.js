@@ -3,7 +3,8 @@ var gameData = {
     goldPerClick: 1,
     goldPerClickCost: 10,
     dwarfMiner : 1,
-    dwarfMinerCost: 20
+    dwarfMinerCost: 20,
+    version : 2
 }
 
 function mineGold() {
@@ -45,6 +46,6 @@ var saveGameLoop = window.setInterval(function() {
 }, 15000)
 
 var savegame = JSON.parse(localStorage.getItem("goldMinerSave"))
-if (savegame !== null) {
+if (savegame !== null && gameData.version == 2) {
     gameData = savegame
 }
