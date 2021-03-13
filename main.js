@@ -39,11 +39,13 @@ function buyDwarfMiner() {
 
 var mainGameLoop = window.setInterval(function() {
     dwarfMine()
+    document.getElementById("perClickUpgrade").innerHTML = "Upgrade Pickaxe (Currently Level " + gameData.goldPerClick + ") Cost: " + gameData.goldPerClickCost + " Gold"
+    document.getElementById("perClickBuyMiner").innerHTML = "Buy Dwarf Miner (Currently " + gameData.dwarfMiner + ") Cost: " + gameData.dwarfMinerCost + " Gold"
 }, 1000)
 
 var saveGameLoop = window.setInterval(function() {
     localStorage.setItem("goldMinerSave", JSON.stringify(gameData))
-}, 15000)
+}, 2000)
 
 var savegame = JSON.parse(localStorage.getItem("goldMinerSave"))
 if (savegame !== null && gameData.version == 2) {
